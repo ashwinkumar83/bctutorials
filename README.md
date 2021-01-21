@@ -4,20 +4,25 @@ Project related to BigCommerce
 
 ### Store Credit APP
 
- *This sample node js application helps to convert a gift certificate order to store credit for the customer*
+ *This sample node js application helps to convert a gift certificate order to store credit 
+ for the customer*
  
  <pre>
  
     1. update the dev.env with your store details
     2. npm start
     
-    THIS IS NOT PRODUCTION READY CODE. KINDLY MAKE YOUR REQUIRED CHANGES AND TEST BEFORE DEPLOYING IT FOR PRODUCTION USE.
+    THIS IS NOT PRODUCTION READY CODE. KINDLY MAKE YOUR REQUIRED CHANGES AND TEST BEFORE DEPLOYING IT 
+    FOR PRODUCTION USE.
     
 </pre>
 
 ##### Use Case:
 <pre>
-Merchant wants to create eWallet kind of service in this website. So customers can prepay the wallet and get some discounts to buy stuff using wallet money. In Bigcommerce, store credit can be used as eWallet and this api provides a solution to address this requirement. Here, I converted the gift card certificate order into corresponding eWallet money which the customers can use as payment.
+Merchant wants to create eWallet kind of service in this website. So customers can prepay the wallet and 
+get some discounts to buy stuff using wallet money. In Bigcommerce, store credit can be used as eWallet 
+and this api provides a solution to address this requirement. Here, I converted the gift card certificate 
+order into corresponding eWallet money which the customers can use as payment.
 </pre>
 
 ##### Steps:
@@ -34,7 +39,8 @@ This app can be hosted as middleware webhook API service.
     "headers": {}
    }
  
-2. Host the node js locally (dev) or as a middleware ( cloud functions ) to receive the order data and filter gift card certificate order and convert it into store credit. 
+2. Host the node js locally (dev) or as a middleware ( cloud functions ) to receive the order data and 
+filter gift card certificate order and convert it into store credit. 
  
    POST: http://localhost:3000/hooks/storecredit
  
@@ -49,4 +55,7 @@ This app can be hosted as middleware webhook API service.
       "id": 230,
     }
   }
-3. The APP will receive the request, retrieve the order details, product details then filter it for gift card certificate and finally credit the gift card cost as store credit. It will override the store credit so make respective changes to append if required.
+3. The APP will receive the request, retrieve the order details, product details then filter it for gift card
+certificate and finally credit the gift card cost as store credit. It will override the store credit so make 
+respective changes to append if required.
+</pre>
