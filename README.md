@@ -49,3 +49,4 @@ This app can be hosted as middleware webhook API service.
       "id": 230,
     }
   }
+3. The APP will receive the request, retrieve the order details, product details then filter it for gift card certificate and finally credit the gift card cost as store credit. It will override the store credit so make respective changes to append if required.
