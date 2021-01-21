@@ -47,9 +47,5 @@ This app can be hosted as middleware webhook API service.
     "data": {
       "type": "order",
       "id": 230,
-      "status": {
-        "previous_status_id": 0,
-        "new_status_id": 10
-      }
     }
   }
