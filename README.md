@@ -1,4 +1,4 @@
-# bctutorials
+# BigCommerce tutorials
 Project related to BigCommerce 
 
 
