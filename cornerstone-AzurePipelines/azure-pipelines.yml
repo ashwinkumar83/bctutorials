@@ -1,0 +1,61 @@
+# Set the required variables for the pipeline in the variables tab
+
+# BC-STOREHASH - Store Hash of BigCommerce Store
+# BC-STENCIL_CLI_TOKEN - Stencil CLI Token 
+# BC-RELEASE_NAME - Release Name of your storefront theme file
+# BC-THEME_VARIATION - Theme variation name
+
+trigger:
+  branches:
+    include:
+    - refs/heads/master
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+    clean: true
+  - task: NodeTool@0
+    displayName: Use Node 12.x
+    inputs:
+      versionSpec: 12.x
+  - task: Bash@3
+    displayName: Stencil init
+    inputs:
+      targetType: inline
+      script: >
+        # Write your commands here
+
+
+        echo 'Hello BigCommerce Installation'
+
+        # Install stencil
+
+        npm install -g @bigcommerce/stencil-cli
+
+
+        echo 'Stencil init'
+
+        stencil init -u https://store-$(BC-STOREHASH).mybigcommerce.com -t $(BC-STENCIL_CLI_TOKEN) -p 80
+
+
+        echo 'Stencil NPM Install'
+
+
+        npm install
+
+
+        echo 'Stencil Bundle'
+
+        stencil bundle -n $(BC-RELEASE_NAME)-$(Build.BuildId)
+
+
+        echo 'Stencil push'
+
+        stencil push -f $(BC-RELEASE_NAME)-$(Build.BuildId).zip -a $(BC-THEME_VARIATION)
+
+
+        echo 'Stencil new theme activated - Release' $(BC-RELEASE_NAME)-$(Build.BuildId)
+...
